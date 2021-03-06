@@ -56,41 +56,11 @@ public class UniqueDigitsOfLargeNumber {
 		Scanner sc = new Scanner(System.in);
 		String input = sc.nextLine();
 
-		//Unique digit logic
-		StringBuffer uniqueDigits = new StringBuffer();
-		for (int i = 0; i < input.length(); i++) {
-			boolean contains = false;
+		StringBuffer uniqueDigits = uniqueDigits(input);
+		System.out.println("Unique digits: " + uniqueDigits);
 
-			//Below loop will check whether uniqueDigits already has the character being indexed
-			for (int j = 0; j < uniqueDigits.length(); j++) {
-				if(input.charAt(i) == uniqueDigits.charAt(j)) contains = true;
-			}
-			if(!contains) uniqueDigits.append(input.charAt(i));
-		}
-		System.out.println("Unique digits are : " + uniqueDigits);
-
-		//Finding the largest possible number
-		StringBuffer result = new StringBuffer();
-		long largest = 0;
-		char hash = '#';
-		for (int i = 0; i < uniqueDigits.length(); i++) {
-
-			int indexToReplace = 0;
-			for (int j = 0; j < uniqueDigits.length(); j++) {
-				if (hash == uniqueDigits.charAt(j)) continue;
-
-				Long temp = Long.valueOf(String.valueOf(uniqueDigits.charAt(j)));
-				if (temp > largest) {
-					indexToReplace = j;
-					largest = temp;
-				}
-			}
-			result.append(largest);
-			largest = 0;
-			uniqueDigits.setCharAt(indexToReplace, hash);
-		}
-
-		System.out.println("Largest number: " + Long.valueOf(result.toString()));
+		Long result = largestNumber(uniqueDigits);
+		System.out.println("Largest number: " + result);
 
 	}
 }

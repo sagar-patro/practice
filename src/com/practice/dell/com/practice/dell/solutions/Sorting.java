@@ -1,31 +1,59 @@
 package com.practice.dell.com.practice.dell.solutions;
 
 public class Sorting {
-	public static void main(String args[]) {
-		int[] nums = {4, 3, 1, 6, 2, 8, 9, 2, 1, 7, 12, 10, 5};
-		int[] result = insertionSort(nums);
+	private static String print(int[] e) {
+		if(e == null) return "[]";
 
-		System.out.print("[");
-		for (int i = 0; i < result.length; i++) {
-			System.out.print(result[i] + ", ");
+		StringBuffer sb = new StringBuffer();
+		sb.append("[");
+		for (int i : e) {
+			sb.append(i).append(", ");
 		}
-		System.out.print("]");
+		sb.append("]");
+		return sb.toString();
+	}
+	private static void swap(int[]a, int toBeReplaced, int replaceWith) {
+		int temp = a[toBeReplaced];
+		a[toBeReplaced] = a[replaceWith];
+		a[replaceWith] = temp;
 	}
 
-	public static int[] bubbleSort(int[] nums) { //[1, 1, 2, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, ]
+	public static int[] bubbleSort(int[] nums) {
 		for (int i = nums.length - 1; i >= 0 ; i--) {
 			for(int j = 0; j < i; j++) {
 				if(nums[j] > nums [j+1]) {
-						int temp = nums[j];
-						nums[j] = nums[j+1];
-						nums[j+1] = temp;
+					int temp = nums[j];
+					nums[j] = nums[j+1];
+					nums[j+1] = temp;
 				}
 			}
 		}
 		return nums;
 	}
 
-	public static int[] insertionSort(int[] nums) { //[1, 1, 2, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, ]
+	/**
+	 * 1. Find/Select(pun intended) the shortest element in the list
+	 * 2. Swap the left most element with the shortest one
+	 * 3. Left most element is sorted
+	 * 4. Move 1 step towards right
+	 * Repeat step 1-4 till all elements are traversed
+	 */
+	public static int[] selectionSort(int[] nums) {
+		int min;
+		for (int i = 0; i < nums.length - 1; i++) {
+			min = i;
+			for (int j = i + 1; j < nums.length; j++) {
+				if(nums[j] < nums[min]) {
+					min = j;
+				}
+			}
+			swap(nums, i, min);
+		}
+		return nums;
+	}
+
+
+	public static int[] insertionSort(int[] nums) {
 		for (int i = 0; i < nums.length-1 ; i++) {
 
 			int temp = nums[i+1];
@@ -39,4 +67,14 @@ public class Sorting {
 
 		return nums;
 	}
+
+	public static void main(String args[]) {
+		int[] nums = {4, 3, 1, 6, 2, 8, 9, 2, 1, 7, 12, 10, 5};
+
+		System.out.println("bubbleSort: " + print(bubbleSort(nums)));
+		System.out.println("selectionSort: " + print(selectionSort(nums)));
+		System.out.println("insertionSort: " + print(insertionSort(nums)));
+	}
+
+
 }
