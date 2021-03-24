@@ -1,4 +1,4 @@
-package com.practice.dell;
+package com.practice.dell.com.practice.dell.solutions;
 
 import java.util.Scanner;
 
@@ -7,7 +7,6 @@ public class UniqueDigitsOfLargeNumber {
 
 	private static StringBuffer uniqueDigits(final String input) {
 		if(null == input) return null;
-
 		StringBuffer result = new StringBuffer();
 
 		for (int i = 0; i < input.length(); i++) {
@@ -16,7 +15,6 @@ public class UniqueDigitsOfLargeNumber {
 			}
 		}
 		return result;
-
 	}
 
 	private static boolean contains(StringBuffer source, char c) {
@@ -61,6 +59,5 @@ public class UniqueDigitsOfLargeNumber {
 
 		Long result = largestNumber(uniqueDigits);
 		System.out.println("Largest number: " + result);
-
 	}
 }

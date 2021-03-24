@@ -39,6 +39,8 @@ public class Sorting {
 	 * Repeat step 1-4 till all elements are traversed
 	 */
 	public static int[] selectionSort(int[] nums) {
+
+
 		int min;
 		for (int i = 0; i < nums.length - 1; i++) {
 			min = i;
@@ -47,7 +49,7 @@ public class Sorting {
 					min = j;
 				}
 			}
-			swap(nums, i, min);
+			if(min != i) swap(nums, i, min);
 		}
 		return nums;
 	}
