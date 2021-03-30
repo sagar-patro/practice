@@ -44,7 +44,7 @@ public class Prime {
 	}
 
 	//o(n)
-	static boolean isPrime2(int num) {
+	public static boolean isPrime2(int num) {
 		if(num <= 1) {return false;}
 		if(num <= 3) {return true;}
 		if(num % 2 == 0 || num % 3 == 0) {return false;}

@@ -1,25 +1,33 @@
 package com.practice.dell;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 public class Main {
-	public static void main(String[] args)
-	{
-		// Let us create a list of strings
-		List<String> list = new ArrayList<String>();
-		list.add("DoSelect");
-		list.add("InMobi");
-		list.add("CampusHash");
-		list.add("mKhoj");
-		list.add("Microsoft");
 
-		System.out.println("Original: " + list);
+	public static void main(String[] args) {
+		int[] nums1 = {1, 3};
+		int[] nums2 = {2};
+		System.out.println(findMedianSortedArrays(nums1, nums2));
+	}
 
-		Collections.rotate(list, -2);
+	public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
+		int n = nums1.length + nums2.length;
+		int[] median;
+		if(n % 2 != 0) {
+			median = new int[1];
+			median[0] = n/2;
+		} else {
+			median = new int[2];
+			median[0] = (n - 1)/2;
+			median[1] = (n + 1)/2;
+		}
 
-		System.out.println("Rotated: " + list);
+		if(median.length == 1) {
+			if(median[0] < nums1.length) return nums1[median[0]];
+			else {
+				int index = median[0] - nums1.length;
+				return nums2[index];
+			}
+		}
+		return -1;
 	}
 }
 

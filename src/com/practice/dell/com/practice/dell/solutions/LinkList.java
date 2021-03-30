@@ -14,6 +14,7 @@ public class LinkList<E> {
 		E data;
 		Node<E> next;
 
+		Node() {}
 		Node(E data, Node next) {
 			this.data = data;
 			this.next = next;
@@ -140,8 +141,39 @@ public class LinkList<E> {
 		return sb.toString();
 	}
 
+	public static Node addTwoNumbers(Node<Integer> l1, Node<Integer> l2) {
+		int carryOver = 0;
+		Node<Integer> head = new Node<>();
+		Node<Integer> ls = head;
+
+		while(l1 != null || l2 != null) {
+			int val = 0;
+			if(l1 != null) {
+				val = l1.data;
+				l1 = l1.next;
+			}
+			if(l2 != null) {
+				val += l2.data;
+				l2 = l2.next;
+			}
+			val += carryOver;
+
+			if(val > 9) {
+				carryOver = val / 10;
+			} else {
+				carryOver = 0;
+
+			}
+
+			head.next = new Node<>(val % 10, null);
+			head = head.next;
+		}
+		if(carryOver != 0) head.next = new Node<>(carryOver, null);
+		return ls.next;
+	}
+
 	public static void main(String[] args) {
-		LinkList<Integer> linkedList = new LinkList<>();
+		/*LinkList<Integer> linkedList = new LinkList<>();
 		linkedList.add(2);
 		linkedList.add(3);
 		linkedList.add(4);
@@ -157,6 +189,10 @@ public class LinkList<E> {
 
 		log.info(linkedList.toString());
 
-		log.info(linkedList.toString());
+		log.info(linkedList.toString());*/
+
+		Node l1 = new Node(2, new Node(4, new Node(3, null)));
+		Node l2 = new Node(5, new Node(6, new Node(4, null)));
+		log.info(addTwoNumbers(l1, l2).toString());
 	}
 }
