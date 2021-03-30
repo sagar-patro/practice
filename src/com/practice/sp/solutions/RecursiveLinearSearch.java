@@ -1,4 +1,4 @@
-package com.practice.dell.com.practice.dell.solutions;
+package com.practice.sp.solutions;
 
 public class RecursiveLinearSearch {
 	public static void main(String args[]) {

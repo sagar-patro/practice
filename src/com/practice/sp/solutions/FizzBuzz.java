@@ -1,4 +1,4 @@
-package com.practice.dell.com.practice.dell.solutions;
+package com.practice.sp.solutions;
 
 /**
  * if n % 5 == 0; print Fizz

@@ -1,4 +1,4 @@
-package com.practice.dell.com.practice.dell.solutions;
+package com.practice.sp.ds;
 
 import java.util.NoSuchElementException;
 import java.util.logging.Logger;

@@ -1,4 +1,4 @@
-package com.practice.dell.com.practice.dell.solutions;
+package com.practice.sp.ds;
 
 public class Sorting {
 	private static String print(int[] e) {

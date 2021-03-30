@@ -1,4 +1,4 @@
-package com.practice.dell.com.practice.dell.solutions;
+package com.practice.sp.solutions;
 
 import java.util.ArrayList;
 import java.util.List;

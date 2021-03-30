@@ -1,4 +1,4 @@
-package com.practice.dell.com.practice.dell.solutions;
+package com.practice.sp.solutions;
 
 public class Singleton {
 	private static class Holder {

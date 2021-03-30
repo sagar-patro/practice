@@ -1,4 +1,4 @@
-package com.practice.dell;
+package com.practice.sp;
 
 @FunctionalInterface
 public interface DummyInterface {
