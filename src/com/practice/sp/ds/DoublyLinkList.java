@@ -8,7 +8,7 @@ public class DoublyLinkList<E> {
 			Logger.getLogger(DoublyLinkList.class.getName());
 	private Node<E> first;
 	private Node<E> last;
-	private long size;
+	private int size;
 
 	private static class Node<E> {
 		Node<E> prev;
@@ -30,6 +30,9 @@ public class DoublyLinkList<E> {
 		}
 	}
 
+	public int size() {
+		return this.size;
+	}
 	public boolean add(E e) {
 		addFirst(e);
 		return true;
@@ -82,8 +85,9 @@ public class DoublyLinkList<E> {
 
 		for(Node<E> x = first; x != null; x = x.next) {
 			sb.append(x.toString());
+			sb.append(", ");
 		}
-		sb.append(", ").append("]");
+		sb.append("]");
 		return sb.toString();
 	}
 
