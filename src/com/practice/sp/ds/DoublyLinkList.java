@@ -62,8 +62,11 @@ public class DoublyLinkList<E> {
 	private E removeFirst() {
 		Node<E> temp = first;
 		if(temp == null)  throw new NoSuchElementException("Linked list is empty");
+		
 		first = first.next;
-		first.prev = null;
+		if(first == null) last = null;
+		else first.prev = null;
+		
 		size--;
 		return temp.data;
 	}
