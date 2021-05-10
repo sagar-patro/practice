@@ -99,30 +99,36 @@ public class Tree<E extends Comparable<E>> {
 	}
 
 	private void topOrderTraversal(StringBuffer sb) {
-		Map<Integer, E> r = addTopElements(new TreeMap<>(), new LinkedList<>());
+		Map<Integer, E> r = topOrder();
 
 		sb.append(r.toString());
 	}
+	
+	public Map<Integer, E> topOrder() {
+		Map<Integer, E> result = new HashMap<>();
+		Map<E, Integer> hdMap = new HashMap<>();
 
-	private Map<Integer, E> addTopElements(Map<E, Integer> m, Queue<Node<E>> queue) {
-		if(root == null) return Collections.emptyMap();
+		Queue<Node<E>> queue = new LinkedList<>();
 
-		Map<Integer, E> result = new TreeMap<>();
-		queue.add(root);
-		addToMap2(root, m, result, 0);
+		if(root != null) {
+			queue.add(root);
+			add2Map(result, hdMap, root, 0);
+		}
 
 		while(!queue.isEmpty()) {
 			Node<E> current = queue.poll();
-			if (current.left != null) {
-				int hd = m.get(current.data);
-				addToMap2(current.left, m, result, hd - 1);
+			int hd = hdMap.get(current.data);
+
+			if(current.left != null) {
 				queue.add(current.left);
+				add2Map(result, hdMap, current.left, hd - 1);
 			}
-			if (current.right != null) {
-				int hd = m.get(current.data);
-				addToMap2(current.right, m, result, hd + 1);
+
+			if(current.right != null) {
 				queue.add(current.right);
+				add2Map(result, hdMap, current.right, hd + 1);
 			}
+
 		}
 		return result;
 	}
