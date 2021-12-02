@@ -21,6 +21,8 @@ public class Matrix {
 
 		Arrays.stream(sumOfDiagonals(matrix)).boxed().map(String::valueOf)
 				.reduce((a, b)-> a + ", " + b).ifPresent(System.out::println);
+
+		rotate(matrix);
 	}
 
 
@@ -44,5 +46,32 @@ public class Matrix {
 		}
 
 		return new int[] {psum, ssum};
+	}
+
+	//Transpose + reverse
+	public static void rotate(int[][] m) {
+		int[][] n = new int[m.length][m.length];
+
+		//Transpose
+		for(int i = 0; i < m.length; i++) {
+			for(int j = 0; j < m.length; j++) {
+				n[j][i] = m[i][j];
+			}
+		}
+
+		//reverse
+		for(int i = 0; i < m.length; i++) {
+			for(int j = m.length - 1; j >= 0; j--) {
+				m[i][m.length - 1 - j] = n[i][j];
+			}
+		}
+
+		for(int i = 0; i < m.length; i++) {
+			for(int j = 0; j < m.length; j++) {
+				System.out.print(m[i][j] + ", ");
+			}
+			System.out.println();
+		}
+
 	}
 }

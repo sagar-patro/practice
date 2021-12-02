@@ -1,12 +1,6 @@
 package com.practice.sp.ds;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
-import java.util.TreeMap;
+import java.util.*;
 
 public class Tree<E extends Comparable<E>> {
 	private Node<E> root;
@@ -112,7 +106,7 @@ public class Tree<E extends Comparable<E>> {
 
 		if(root != null) {
 			queue.add(root);
-			add2Map(result, hdMap, root, 0);
+			//add2Map(result, hdMap, root, 0);
 		}
 
 		while(!queue.isEmpty()) {
@@ -121,12 +115,12 @@ public class Tree<E extends Comparable<E>> {
 
 			if(current.left != null) {
 				queue.add(current.left);
-				add2Map(result, hdMap, current.left, hd - 1);
+				//add2Map(result, hdMap, current.left, hd - 1);
 			}
 
 			if(current.right != null) {
 				queue.add(current.right);
-				add2Map(result, hdMap, current.right, hd + 1);
+				//add2Map(result, hdMap, current.right, hd + 1);
 			}
 
 		}
