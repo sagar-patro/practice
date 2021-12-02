@@ -13,7 +13,7 @@ public class Prime {
 		}
 		long t1 = System.currentTimeMillis();
 		nums.stream()
-				.filter(e -> isPrime(e, Math.sqrt(e)))
+				.filter(e -> isPrime(e, java.lang.Math.sqrt(e)))
 				.collect(Collectors.toList());
 		long t2 = System.currentTimeMillis();
 
