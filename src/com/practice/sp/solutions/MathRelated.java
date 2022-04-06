@@ -2,7 +2,7 @@ package com.practice.sp.solutions;
 
 import java.util.Arrays;
 
-public final class Math {
+public final class MathRelated {
 
 	public static int gcd(int a, int b) {
 		if (b == 0) return a;
